@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
+/* ===========================
+   Design Tokens
+=========================== */
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  --primary: #6c63ff;
+  --primary-hover: #5b54e8;
+
+  --secondary: #64748b;
+
+  --border: #e2e8f0;
+
+  --container: 1280px;
+
+  --radius: 16px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ===========================
+   Base
+=========================== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===========================
+   Reusable Container
+=========================== */
+
+.container-custom {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ===========================
+   Selection
+=========================== */
+
+::selection {
+  background: var(--primary);
+  color: white;
 }
