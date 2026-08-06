@@ -5,7 +5,7 @@ import { highlights } from "@/data/home";
 
 export default function Hero() {
   return (
-    <section className="py-28">
+      <section className="py-20 lg:py-42">
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-[4fr_2fr]">
             <div className="max-w-3xl">
@@ -40,7 +40,7 @@ export default function Hero() {
                     ))}
                  </div>
 
-                <div className="mt-12 flex gap-4">
+{/*                <div className="mt-12 flex gap-4">
 
                     <Button>
                     View Case Studies
@@ -50,7 +50,7 @@ export default function Hero() {
                     Download Resume
                     </Button>
 
-                </div>
+                </div>*/}
                 
                 
             </div>

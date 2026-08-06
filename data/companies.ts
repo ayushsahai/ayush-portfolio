@@ -1,32 +1,26 @@
 export const companies = [
   {
-    name: "Amgen",
-    project: "Manage My CoPay Portal",
-    category: "Patient Support Platform",
-    year: "2024",
-  },
-  {
-    name: "Pfizer",
-    project: "Email Experience",
-    category: "Digital Campaigns",
-    year: "2022",
-  },
-  {
     name: "Bayer",
-    project: "Healthcare Portal",
-    category: "Enterprise UX",
-    year: "2021",
-  },
-  {
-    name: "Johnson & Johnson",
-    project: "Patient Journey",
-    category: "Healthcare UX",
-    year: "2023",
+    project: "Designing and enhancing enterprise digital products for global healthcare brands.",
+    category: "Enterprise Product Design",
+    year: "2025 – Present",
   },
   {
     name: "Boehringer Ingelheim",
-    project: "Design System",
-    category: "Scalable Components",
-    year: "2023",
+    project: "Building scalable design systems and improving design consistency across digital experiences.",
+    category: "Design Systems",
+    year: "2024 – 2025",
+  },
+  {
+    name: "Amgen",
+    project: "Redesigned patient-facing healthcare experiences to simplify complex reimbursement journeys.",
+    category: "UX Strategy & Product Design",
+    year: "2022 – 2024",
+  },
+  {
+    name: "AstraZeneca",
+    project: "Led end-to-end digital design initiatives for the JAPAC region across multiple healthcare brands.",
+    category: "Product Design",
+    year: "2019 – 2022",
   },
 ];

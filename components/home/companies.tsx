@@ -4,7 +4,7 @@ import { companies } from "@/data/companies";
 
 export default function Companies() {
   return (
-    <section className="py-32">
+    <section className="py-32 bg-gray-50" id="companies">
       <Container>
 
         <div className="mx-auto max-w-3xl text-center">
@@ -27,7 +27,7 @@ export default function Companies() {
 
         </div>
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3 justify-items-center">
+        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-2 justify-items-center">
 
           {companies.map((company) => (
             <CompanyCard

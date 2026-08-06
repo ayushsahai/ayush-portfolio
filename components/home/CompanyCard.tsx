@@ -15,7 +15,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
       className="
         group
         relative
-        w-[320px]
+        w-[580px]
         overflow-hidden
         rounded-2xl
         border
@@ -63,7 +63,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
             {company.name}
           </h3>
 
-          <ArrowUpRight
+{/*          <ArrowUpRight
             size={20}
             className="
               translate-x-2
@@ -76,7 +76,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
               group-hover:opacity-100
               text-blue-600
             "
-          />
+          />*/}
 
         </div>
 

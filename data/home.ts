@@ -1,6 +1,8 @@
 export const highlights = [
-  "7+ Years Experience",
+  "8+ Years Experience",
   "Google UX Design Professional Certificate",
+  
+  "Design Thinking",
   "Enterprise & Healthcare UX",
   "Design Systems",
 ];
