@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { LockKeyhole } from "lucide-react";
 
 type CaseStudyGateProps = {
-  password: string;
+  password?: string;
   title?: string;
   description?: string;
 };
