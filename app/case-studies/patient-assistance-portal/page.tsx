@@ -20,9 +20,9 @@ export default async function PatientAssistancePortalCaseStudy() {
   const accessGranted =
     cookieStore.get("case-study-access")?.value === "granted";
 
-  if (!accessGranted) {
-    return <CaseStudyGate />;
-  }
+if (!accessGranted) {
+  return <CaseStudyGate password={process.env.CASE_STUDY_PASSWORD || ""} />;
+}
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
