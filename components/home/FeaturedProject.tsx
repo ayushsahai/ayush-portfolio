@@ -1,68 +1,219 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-interface Props {
+type FeaturedProjectProps = {
   project: {
     title: string;
     description: string;
     image: string;
-    href: string;
-    tags: string[];
-    featured: boolean;
+    category?: string;
+    tags?: string[];
+    href?: string;
   };
-}
+};
 
-export default function FeaturedProject({ project }: Props) {
+export default function FeaturedProject({
+  project,
+}: FeaturedProjectProps) {
+  const href = project.href || "#";
+
   return (
     <Link
-      href={project.href}
-      className={`group block overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-500 hover:-translate-y-2 hover:border-blue-500 hover:shadow-2xl ${
-        project.featured ? "lg:col-span-2" : ""
-      }`}
+      href={href}
+      className="
+        group
+        flex
+        h-full
+        flex-col
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-gray-200
+        bg-white
+        shadow-[0_10px_40px_rgba(15,23,42,0.04)]
+        transition-all
+        duration-500
+        hover:-translate-y-1
+        hover:border-gray-300
+        hover:shadow-[0_20px_60px_rgba(15,23,42,0.10)]
+      "
     >
-      <div className="relative h-80 overflow-hidden">
+
+      {/* IMAGE */}
+      <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-gray-100">
 
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="
+            object-cover
+            transition-transform
+            duration-700
+            ease-out
+            group-hover:scale-[1.04]
+          "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        {/* IMAGE OVERLAY */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/20
+            via-transparent
+            to-transparent
+            opacity-60
+            transition-opacity
+            duration-500
+            group-hover:opacity-30
+          "
+        />
+
+        {/* CATEGORY */}
+        {project.category && (
+          <div className="absolute left-5 top-5">
+            <span
+              className="
+                rounded-full
+                border
+                border-white/30
+                bg-black/50
+                px-4
+                py-2
+                text-[10px]
+                font-semibold
+                uppercase
+                tracking-[0.18em]
+                text-white
+                backdrop-blur-md
+              "
+            >
+              {project.category}
+            </span>
+          </div>
+        )}
+
+        {/* TOP ARROW */}
+        <div
+          className="
+            absolute
+            right-5
+            top-5
+            flex
+            h-11
+            w-11
+            items-center
+            justify-center
+            rounded-full
+            bg-white
+            text-gray-900
+            shadow-lg
+            transition-all
+            duration-500
+            group-hover:rotate-45
+            group-hover:scale-105
+          "
+        >
+          <ArrowUpRight size={18} />
+        </div>
 
       </div>
 
-      <div className="p-8">
+      {/* CONTENT */}
+      <div className="flex flex-1 flex-col p-8 md:p-9">
 
-        <h3 className="text-3xl font-bold tracking-tight transition-colors duration-300 group-hover:text-blue-600">
+        {/* TITLE */}
+        <h3
+          className="
+            text-2xl
+            font-bold
+            leading-tight
+            tracking-tight
+            text-gray-900
+            transition-colors
+            duration-300
+            group-hover:text-blue-600
+          "
+        >
           {project.title}
         </h3>
 
-        <p className="mt-5 leading-8 text-gray-600">
+        {/* DESCRIPTION */}
+        <p className="mt-4 text-base leading-7 text-gray-600">
           {project.description}
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        {/* TAGS */}
+        {project.tags && project.tags.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="
+                  rounded-full
+                  border
+                  border-gray-200
+                  bg-gray-50
+                  px-3
+                  py-1.5
+                  text-xs
+                  font-medium
+                  text-gray-600
+                  transition-colors
+                  duration-300
+                  group-hover:border-gray-300
+                "
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-gray-100 px-4 py-2 text-sm transition-all duration-300 group-hover:bg-blue-50 group-hover:text-blue-700"
-            >
-              {tag}
-            </span>
-          ))}
+        {/* CTA */}
+        <div
+          className="
+            mt-auto
+            flex
+            items-center
+            justify-between
+            border-t
+            border-gray-100
+            pt-6
+            mt-8
+          "
+        >
+          <span className="text-sm font-semibold text-gray-900">
+            Read Full Case Study
+          </span>
 
-        </div>
-
-        <div className="mt-8 flex items-center gap-2 font-semibold text-blue-600">
-
-          Explore Project
-
-          <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-
+          <span
+            className="
+              flex
+              h-9
+              w-9
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-gray-200
+              text-gray-700
+              transition-all
+              duration-500
+              group-hover:translate-x-1
+              group-hover:border-blue-600
+              group-hover:bg-blue-600
+              group-hover:text-white
+            "
+          >
+            <ArrowUpRight size={16} />
+          </span>
         </div>
 
       </div>

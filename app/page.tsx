@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
-import Companies from "@/components/home/Companies";
+import Experience from "@/components/home/Experience";
 import Process from "@/components/home/Process";
 import Testimonials from "@/components/home/Testimonials";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <section id="companies">
-      <Companies /></section>
+      <Experience /></section>
       <section id="process">
       <Process /></section>
       <section id="projects">
