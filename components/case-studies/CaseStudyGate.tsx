@@ -4,38 +4,57 @@ import { FormEvent, useState } from "react";
 import { LockKeyhole } from "lucide-react";
 
 type CaseStudyGateProps = {
-  password?: string;
   title?: string;
   description?: string;
 };
 
 export default function CaseStudyGate({
-  password,
   title = "Private Case Study",
   description = "This case study contains confidential project information. Enter the password to continue.",
 }: CaseStudyGateProps) {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (value === password) {
-      document.cookie =
-        "case-study-access=granted; path=/; max-age=3600; SameSite=Lax";
-
-      window.location.reload();
+    if (!value.trim()) {
+      setError("Please enter the password.");
       return;
     }
 
-    setError("Incorrect password. Please try again.");
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/case-study-auth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password: value,
+        }),
+      });
+
+      if (!response.ok) {
+        setError("Incorrect password. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      window.location.reload();
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setLoading(false);
+    }
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-50 px-6">
-      <div className="w-full max-w-md">
-
-        <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
+    <main className="min-h-screen bg-gray-50 px-6 py-20">
+      <div className="mx-auto flex min-h-[70vh] max-w-xl items-center justify-center">
+        <div className="w-full rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
 
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 text-white">
             <LockKeyhole size={24} />
@@ -52,14 +71,14 @@ export default function CaseStudyGate({
           <form onSubmit={handleSubmit} className="mt-8">
 
             <label
-              htmlFor="password"
+              htmlFor="case-study-password"
               className="text-sm font-medium text-gray-900"
             >
               Password
             </label>
 
             <input
-              id="password"
+              id="case-study-password"
               type="password"
               value={value}
               onChange={(event) => {
@@ -67,26 +86,60 @@ export default function CaseStudyGate({
                 setError("");
               }}
               placeholder="Enter password"
-              className="mt-2 w-full rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10"
+              autoComplete="off"
+              disabled={loading}
+              className="
+                mt-2
+                w-full
+                rounded-xl
+                border
+                border-gray-300
+                bg-white
+                px-4
+                py-3
+                text-gray-900
+                outline-none
+                transition
+                focus:border-gray-900
+                focus:ring-2
+                focus:ring-gray-900/10
+                disabled:opacity-50
+              "
             />
 
             {error && (
-              <p className="mt-3 text-sm text-red-600">
+              <p
+                role="alert"
+                className="mt-3 text-sm font-medium text-red-600"
+              >
                 {error}
               </p>
             )}
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 font-medium text-white transition hover:bg-gray-700"
+              disabled={loading}
+              className="
+                mt-6
+                w-full
+                rounded-xl
+                bg-gray-900
+                px-5
+                py-3.5
+                font-medium
+                text-white
+                transition
+                hover:bg-gray-700
+                disabled:cursor-not-allowed
+                disabled:opacity-50
+              "
             >
-              View Case Study
+              {loading ? "Checking..." : "View Case Study"}
             </button>
 
           </form>
 
         </div>
-
       </div>
     </main>
   );

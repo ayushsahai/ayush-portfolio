@@ -2,18 +2,23 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { password } = await request.json();
+    const body = await request.json();
 
+    const submittedPassword = body?.password;
     const correctPassword = process.env.CASE_STUDY_PASSWORD;
 
     if (!correctPassword) {
+      console.error("CASE_STUDY_PASSWORD is not configured.");
       return NextResponse.json(
-        { error: "Case study authentication is not configured." },
+        { error: "Case study password is not configured." },
         { status: 500 }
       );
     }
 
-    if (password !== correctPassword) {
+    if (
+      typeof submittedPassword !== "string" ||
+      submittedPassword !== correctPassword
+    ) {
       return NextResponse.json(
         { error: "Incorrect password." },
         { status: 401 }
@@ -24,12 +29,14 @@ export async function POST(request: Request) {
       success: true,
     });
 
-    response.cookies.set("case-study-access", "granted", {
+    response.cookies.set({
+      name: "pap-case-study-access",
+      value: "granted",
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 60 * 60 * 24,
-      path: "/case-studies/patient-assistance-portal",
+      path: "/",
+      maxAge: 60 * 60,
     });
 
     return response;

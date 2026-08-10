@@ -17,11 +17,16 @@ import CaseStudyGate from "@/components/case-studies/CaseStudyGate";
 export default async function PatientAssistancePortalCaseStudy() {
   const cookieStore = await cookies();
 
-  const accessGranted =
-    cookieStore.get("case-study-access")?.value === "granted";
+const accessGranted =
+  cookieStore.get("pap-case-study-access")?.value === "granted";
 
 if (!accessGranted) {
-  return <CaseStudyGate password={process.env.CASE_STUDY_PASSWORD || ""} />;
+  return (
+    <CaseStudyGate
+      title="Patient Assistance Portal"
+      description="This case study contains confidential project information. Enter the password to continue."
+    />
+  );
 }
 
   return (
