@@ -4,11 +4,15 @@ import { FormEvent, useState } from "react";
 import { LockKeyhole } from "lucide-react";
 
 type CaseStudyGateProps = {
+  password?: string;
+  cookieName?: string;
   title?: string;
   description?: string;
 };
 
 export default function CaseStudyGate({
+  password,
+  cookieName = "case-study-access",
   title = "Private Case Study",
   description = "This case study contains confidential project information. Enter the password to continue.",
 }: CaseStudyGateProps) {
@@ -16,7 +20,7 @@ export default function CaseStudyGate({
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     if (!value.trim()) {
@@ -35,6 +39,9 @@ export default function CaseStudyGate({
         },
         body: JSON.stringify({
           password: value,
+          caseStudy: "mobile-app-design",
+          expectedPassword: password,
+          cookieName,
         }),
       });
 
@@ -52,9 +59,9 @@ export default function CaseStudyGate({
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 px-6 py-20">
-      <div className="mx-auto flex min-h-[70vh] max-w-xl items-center justify-center">
-        <div className="w-full rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
+    <main className="min-h-screen bg-gray-50 px-6 py-16">
+      <div className="mx-auto max-w-2xl">
+        <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
 
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 text-white">
             <LockKeyhole size={24} />

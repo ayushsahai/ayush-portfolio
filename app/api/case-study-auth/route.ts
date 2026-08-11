@@ -2,36 +2,34 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const { password, cookieName } = await request.json();
 
-    const submittedPassword = body?.password;
-    const correctPassword = process.env.CASE_STUDY_PASSWORD;
-
-    if (!correctPassword) {
-      console.error("CASE_STUDY_PASSWORD is not configured.");
+    if (!password || !cookieName) {
       return NextResponse.json(
-        { error: "Case study password is not configured." },
-        { status: 500 }
+        { error: "Missing credentials" },
+        { status: 400 }
       );
     }
 
-    if (
-      typeof submittedPassword !== "string" ||
-      submittedPassword !== correctPassword
-    ) {
+    const passwords: Record<string, string | undefined> = {
+      "case-study-access": process.env.CASE_STUDY_PASSWORD,
+      "design-system-access": process.env.DESIGN_SYSTEM_PASSWORD,
+      "mobile-app-case-study-access":
+        process.env.MOBILE_APP_CASE_STUDY_PASSWORD,
+    };
+
+    const correctPassword = passwords[cookieName];
+
+    if (!correctPassword || password !== correctPassword) {
       return NextResponse.json(
-        { error: "Incorrect password." },
+        { error: "Incorrect password" },
         { status: 401 }
       );
     }
 
-    const response = NextResponse.json({
-      success: true,
-    });
+    const response = NextResponse.json({ success: true });
 
-    response.cookies.set({
-      name: "pap-case-study-access",
-      value: "granted",
+    response.cookies.set(cookieName, "granted", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -42,7 +40,7 @@ export async function POST(request: Request) {
     return response;
   } catch {
     return NextResponse.json(
-      { error: "Invalid request." },
+      { error: "Invalid request" },
       { status: 400 }
     );
   }

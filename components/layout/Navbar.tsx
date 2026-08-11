@@ -47,7 +47,7 @@ export default function Navbar() {
               },
               {
                 name: "Experience",
-                href: "#companies",
+                href: "#experience",
               },
               {
                 name: "Contact",

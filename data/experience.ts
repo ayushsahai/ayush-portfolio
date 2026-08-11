@@ -5,20 +5,68 @@ import {
 
 export const experience = [
   {
+    id: "falconsfly",
+
+    company: "FalconsFly",
+
+    role: "Senior Software Associate",
+
+    duration: "2018 — 2019",
+
+    icon: Briefcase,
+
+    summary:
+      "This is where my design career started. Working in an early-stage startup meant taking ownership across UI, UX, websites, mobile interfaces, visual design, testing, and client communication. I learned to solve problems quickly and design beyond individual screens.",
+
+    responsibilities: [
+      "UI & UX Design",
+      "Wireframing",
+      "Responsive Websites",
+      "Mobile App Design",
+      "Landing Pages",
+      "Brand Identity",
+      "Application Testing",
+      "Client Communication",
+    ],
+
+    products: [
+      "Startup Websites",
+      "Landing Pages",
+      "Mobile Applications",
+      "Brand Identity",
+      "Marketing Experiences",
+    ],
+
+    clients: [
+      "Startup Clients",
+      "Small Businesses",
+    ],
+
+    impact: [
+      "Built the foundation of my product design career.",
+      "Worked directly with founders and clients.",
+      "Handled design and digital delivery across multiple projects.",
+      "Learned rapid iteration and problem solving in a startup environment.",
+      "Expanded from visual design into digital product experiences.",
+    ],
+  },
+
+  {
     id: "indegene",
 
     company: "Indegene",
 
-    role: "Senior Product Designer",
+    role: "Senior UI/UX Designer",
 
     duration: "2019 — Present",
 
     icon: Stethoscope,
 
     summary:
-      "Designing enterprise healthcare products that simplify complex workflows for patients, healthcare professionals, and internal teams. Working closely with product managers, developers, medical reviewers, and business stakeholders to deliver accessible, scalable, and user-centered digital experiences.",
+      "At Indegene, my role evolved from visual design into end-to-end product design. Working across healthcare and pharmaceutical projects, I now design experiences where usability, accessibility, business requirements, content, and complex workflows all have to work together.",
 
     responsibilities: [
+      "UX Strategy",
       "User Research",
       "Information Architecture",
       "User Journey Mapping",
@@ -26,18 +74,17 @@ export const experience = [
       "High-Fidelity UI Design",
       "Interactive Prototyping",
       "Design Systems",
-      "Accessibility (WCAG)",
+      "Accessibility",
       "Usability Testing",
       "Developer Handoff",
-      "Cross-functional Collaboration",
-      "Stakeholder Workshops",
+      "Stakeholder Collaboration",
     ],
 
     products: [
       "Patient Portals",
-      "Marketing Websites",
-      "Enterprise Platforms",
       "Healthcare Applications",
+      "Enterprise Platforms",
+      "Marketing Websites",
       "Design Systems",
       "Internal Digital Tools",
     ],
@@ -52,56 +99,12 @@ export const experience = [
     ],
 
     impact: [
-      "Simplified complex patient journeys.",
-      "Improved usability for elderly users.",
-      "Designed scalable design systems.",
-      "Reduced user friction across healthcare platforms.",
-      "Collaborated with global cross-functional teams.",
-    ],
-  },
-
-  {
-    id: "falconsfly",
-
-    company: "FalconsFly",
-
-    role: "UI/UX Designer",
-
-    duration: "2018 — 2019",
-
-    icon: Briefcase,
-
-    summary:
-      "Started my design career working with startups across multiple industries. Designed websites, branding, mobile interfaces, and marketing experiences while learning product thinking, user-centered design, and collaboration in fast-paced environments.",
-
-    responsibilities: [
-      "UI Design",
-      "UX Design",
-      "Wireframing",
-      "Brand Identity",
-      "Landing Pages",
-      "Responsive Websites",
-      "Mobile App Design",
-      "Client Communication",
-    ],
-
-    products: [
-      "Startup Websites",
-      "Landing Pages",
-      "Mobile Apps",
-      "Brand Identity",
-      "Marketing Assets",
-    ],
-
-    clients: [
-      "Startup Clients",
-      "Small Businesses",
-    ],
-
-    impact: [
-      "Built the foundation of my product design career.",
-      "Worked directly with founders and clients.",
-      "Learned rapid iteration and problem solving.",
+      "Simplified complex healthcare journeys.",
+      "Designed experiences with accessibility and readability in mind.",
+      "Created scalable design systems and reusable patterns.",
+      "Worked closely with product managers and developers throughout delivery.",
+      "Collaborated with global stakeholders across pharmaceutical organizations.",
+      "Led design work across multiple digital products and experiences.",
     ],
   },
 ];
