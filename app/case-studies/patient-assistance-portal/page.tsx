@@ -23,6 +23,7 @@ const accessGranted =
 if (!accessGranted) {
   return (
     <CaseStudyGate
+      cookieName="case-study-access"
       title="Patient Assistance Portal"
       description="This case study contains confidential project information. Enter the password to continue."
     />

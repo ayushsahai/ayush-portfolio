@@ -4,14 +4,12 @@ import { FormEvent, useState } from "react";
 import { LockKeyhole } from "lucide-react";
 
 type CaseStudyGateProps = {
-  password?: string;
   cookieName?: string;
   title?: string;
   description?: string;
 };
 
 export default function CaseStudyGate({
-  password,
   cookieName = "case-study-access",
   title = "Private Case Study",
   description = "This case study contains confidential project information. Enter the password to continue.",
@@ -39,8 +37,6 @@ export default function CaseStudyGate({
         },
         body: JSON.stringify({
           password: value,
-          caseStudy: "mobile-app-design",
-          expectedPassword: password,
           cookieName,
         }),
       });
@@ -59,8 +55,8 @@ export default function CaseStudyGate({
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 px-6 py-16">
-      <div className="mx-auto max-w-2xl">
+    <main className="min-h-screen bg-gray-50 px-6 py-20">
+      <div className="mx-auto max-w-xl">
         <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm md:p-10">
 
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 text-white">
@@ -107,9 +103,9 @@ export default function CaseStudyGate({
                 text-gray-900
                 outline-none
                 transition
-                focus:border-gray-900
+                focus:border-blue-600
                 focus:ring-2
-                focus:ring-gray-900/10
+                focus:ring-blue-600/10
                 disabled:opacity-50
               "
             />
@@ -136,7 +132,7 @@ export default function CaseStudyGate({
                 font-medium
                 text-white
                 transition
-                hover:bg-gray-700
+                hover:bg-blue-600
                 disabled:cursor-not-allowed
                 disabled:opacity-50
               "
