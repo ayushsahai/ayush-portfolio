@@ -18,13 +18,13 @@ export default async function PatientAssistancePortalCaseStudy() {
   const cookieStore = await cookies();
 
 const accessGranted =
-  cookieStore.get("pap-case-study-access")?.value === "granted";
+  cookieStore.get("case-study-access")?.value === "granted";
 
 if (!accessGranted) {
   return (
     <CaseStudyGate
       cookieName="case-study-access"
-      title="Patient Assistance Portal"
+      title="Private Case Study"
       description="This case study contains confidential project information. Enter the password to continue."
     />
   );

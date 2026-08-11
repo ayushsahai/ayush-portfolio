@@ -1,7 +1,9 @@
 
-"use client";
+
 
 import Link from "next/link";
+import { cookies } from "next/headers";
+import CaseStudyGate from "@/components/case-studies/CaseStudyGate";
 import Image from "next/image";
 import {
   ArrowLeft,
@@ -16,7 +18,22 @@ import {
   Check,
 } from "lucide-react";
 
-export default function DesignSystemCaseStudy() {
+export default async function DesignSystemCaseStudy() {
+  const cookieStore = await cookies();
+
+  const accessGranted =
+    cookieStore.get("design-system-access")?.value === "granted";
+
+  if (!accessGranted) {
+    return (
+      <CaseStudyGate
+        cookieName="design-system-access"
+        title="Private Design System"
+        description="This case study contains confidential design system documentation. Enter the password to continue."
+      />
+    );
+  }
+
   return (
     <main className="bg-white text-gray-900">
 
