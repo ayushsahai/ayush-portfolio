@@ -31,10 +31,10 @@ export default function Home() {
           <Process />
         </section>
 
-        {/* TESTIMONIALS */}
+        {/* TESTIMONIALS 
         <section id="testimonials">
           <Testimonials />
-        </section>
+        </section>*/}
 
         {/* CERTIFICATIONS */}
         <Certification />
