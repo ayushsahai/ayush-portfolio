@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       <Container>
-        <div className="relative grid min-h-[calc(100vh-80px)] items-center gap-16 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:py-24">
+        <div className="relative grid min-h-[calc(100vh-80px)] items-center gap-16 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:py-36">
 
           {/* LEFT */}
           <div className="max-w-3xl">

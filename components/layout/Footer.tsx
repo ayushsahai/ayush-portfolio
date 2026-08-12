@@ -71,11 +71,11 @@ export default function Footer() {
             />
 
             <SocialCard
-              href="https://github.com/ayushsahai"
-              title="GitHub"
-              subtitle="Projects & Source Code"
-              icon={<FaGithub size={28} />}
-            />
+  href="tel:+919598756351"
+  title="Phone"
+  subtitle="+91 95987 56351"
+  icon={<span className="text-2xl">☎</span>}
+/>
 
           </div>
 
@@ -89,7 +89,7 @@ export default function Footer() {
               </h3>
 
               <p className="mt-3 text-gray-400">
-                Designed & Built with Next.js, TypeScript & Tailwind CSS
+                Designing thoughtful digital experiences for people and businesses.
               </p>
             </div>
 
