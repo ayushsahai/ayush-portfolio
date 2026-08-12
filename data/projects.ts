@@ -3,7 +3,7 @@ export const projects = [
     title: "Patient Assistance Portal",
     description:
       "Redesigning a complex insurance claim experience to make it clearer, more accessible, and easier for patients and caregivers to navigate.",
-    image: "/images/copay.jpg",
+    image: "/images/copay.png",
     category: "Healthcare UX",
     tags: [
       "Accessibility",
@@ -32,7 +32,7 @@ export const projects = [
     title: "Designing a Multi-Functional Mobile Experience for Stroke Care",
     description:
       "Designing a new mobile healthcare experience that brings stroke education, assessment tools, clinical resources, and hospital-location services into one accessible product.",
-    image: "/images/mobile-app-design.jpg",
+    image: "/images/mobile-app-hero.png",
     category: "Product Design",
     tags: [
       "Product Design",
