@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import {
   ArrowLeft,
   ArrowUpRight,
-  Figma,
   Layers3,
   LayoutGrid,
   Search,
