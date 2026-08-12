@@ -13,7 +13,10 @@ export const metadata: Metadata = {
     template: "%s | Ayush Sahai",
   },
   description:
-    "Google Certified UI/UX Designer specializing in user-centered digital experiences and modern product design.",
+    "Ayush Sahai -Senior Product Designer specializing in healthcare, enterprise UX, design systems, and user-centered digital experiences.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
